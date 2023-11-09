@@ -1,0 +1,187 @@
+<div class="container">	
+    <div class="form-group pt-3">
+        <h1>Candidates</h1>
+    </div>
+	<div class="row">
+     <?php
+        $experience = $this->session->userdata('experience');
+        $age = $this->session->userdata('age');
+     ?>   
+
+    <div class="col-md-3">
+            <div class="filter">
+                <h5 class="wow zoomIn"> Filter by experience </h5>
+                <!-- Filter by experience -->
+                <form action="<?=site_url()?>candidates/search" method="post">
+                    <select name="experience" id="" class="form-control mb-md-5 mb-2 wow zoomIn">
+                        <option value=""> <-- Select Experience --> </option>
+                        <option 
+                            value="liveStock"
+                            <?php if($experience == "liveStock") echo "selected";?>
+                        > Live Stock </option>
+
+                        <option 
+                            value="tourism"
+                            <?php if($experience == "tourism") echo "selected";?>
+                        > Tourism </option>
+
+                        <option 
+                            value="restaurant"
+                            <?php if($experience == "restaurant") echo "selected";?>
+                        > Restaurant </option>
+
+                        <option 
+                            value="cleaner"
+                            <?php if($experience == "cleaner") echo "selected";?>
+                        > Cleaner </option>
+
+                        <option 
+                            value="other"
+                            <?php if($experience == "other") echo "selected";?>
+                        > Other </option>
+                    </select>
+
+                    <h5 class="wow zoomIn"> Filter by Age </h5>
+                    <!-- Filter by age -->
+                    <select name="age" id="" class="form-control mb-md-5 mb-2 wow zoomIn">
+                        <option value=""> <-- Select Age --> </option>
+                        <option 
+                            value="18-25" 
+                            <?php if($age == "18-25") echo "selected";?>
+                        > 18 - 25</option>
+
+                        <option 
+                            value="26-30"
+                            <?php if($age == "26-30") echo "selected";?>
+                        > 26 - 30 </option>
+
+                        <option 
+                            value="31-35"
+                            <?php if($age == "31-35") echo "selected";?>
+                        > 31 - 35 </option>
+
+                        <option 
+                            value="36-40"
+                            <?php if($age == "36-40") echo "selected";?>
+                        > 36 - 40 </option>
+
+                        <option 
+                            value="41-60"
+                            <?php if($age == "41-60") echo "selected";?>
+                        > 41 -60 </option>
+                    </select>
+                    <input class="btn btn-primary" type="submit" name="submit" value="Search">
+                    <a class="btn btn-danger" href="<?=site_url();?>candidates/clear">Clear</a>
+                </form>
+
+            </div>
+        </div>
+
+        
+        <div class="col-md-9">
+            <?php
+                $sessionRatting = $this->session->userdata('ratting');
+            ?>
+            <form action="<?=site_url()?>candidates/search" method="post" id="rattingFilter">
+                <div class="form-group pt-3 row">                
+                    <label for="rankFilter" class="col-sm-1 col-form-label">Filter:</label>
+                    <div class="col-sm-3">
+                        <select name="ratting" class="form-control rankFilter">
+                            <option 
+                                value="desc" 
+                                <?php if($sessionRatting == 'desc') echo 'selected'; ?>
+                            >Ratting DESC</option>
+                            <option 
+                                value="asc"
+                                <?php if($sessionRatting == 'asc') echo 'selected'; ?>
+                            >Ratting ASC</option>
+                        </select>
+                    </div> 
+                    <div class="col-sm-3">
+                        <a class="btn btn-danger" href="<?=site_url();?>candidates/clear">Clear</a>
+                    </div>               
+                </div>
+                
+            </form>
+
+
+            <?php 
+
+                if($results) {
+                    foreach($results as $row){
+                ?>
+                    <div class="container">
+                        <div class="row border border-secondary px-3 pt-3 pb-1 mb-3">
+                            <div class="col-md-4 px-0 pb-2 wow slideInLeft">
+                                <a href="<?= site_url(); ?>candidates/candidate/<?= $row->id; ?>">
+                                    <img class="candidateImg" src="<?= site_url(); ?><?=$row->photo?>" alt="images">
+                                </a>
+                            </div>
+                            <div class="col-md-8 wow slideInRight">
+                                <h4> 
+                                    <a href="<?= site_url(); ?>candidates/candidate/<?= $row->id; ?>" class="text-dark font-weight-bold"> <?= $row->name; ?> </a> 
+                                </h4>
+                                <h5>
+                                    <div class="stars">
+                                        <?php $ratting = $row->ratting; ?>
+                                        Rank :
+                                        <span 
+                                            class="fa fa-star <?php if($ratting >=1) echo 'checked'; ?>"
+                                        ></span>
+
+                                        <span 
+                                            class="fa fa-star <?php if($ratting >=2) echo 'checked'; ?>"
+                                        ></span>
+
+                                        <span 
+                                            class="fa fa-star <?php if($ratting >=3) echo 'checked'; ?>"
+                                        ></span>
+                                        <span 
+                                            class="fa fa-star <?php if($ratting >=4) echo 'checked'; ?>"
+                                        ></span>
+
+                                        <span 
+                                            class="fa fa-star <?php if($ratting >=5) echo 'checked'; ?>"
+                                            
+                                        ></span>
+                                    </div>
+                                </h5>
+                                <h5> <?= $row->nationality; ?> </h5>
+                                <h5> More of works </h5>
+                                <ul class="workList d-flex flex-wrap mb-0">
+                                    <?php
+                                        $candidates = explode(",",$row->candidate_to);
+                                        foreach($candidates as $candidate){
+                                        ?>
+                                        <li> 
+                                            <a href="<?=site_url()?>candidates/search?experience=<?= trim($candidate)?>"> <?= $candidate?> </a> 
+                                        </li>
+                                        <?php
+                                        }
+                                        
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                    }
+                }
+            ?>
+
+            <div class=" d-flex justify-content-center">
+                <div class="pagination"><?php echo $pagination; ?></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+   $('.rankFilter').change(function(){
+        $('#rattingFilter').submit();
+   })
+        
+    
+</script>

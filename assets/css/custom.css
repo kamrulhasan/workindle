@@ -1,0 +1,242 @@
+
+body
+{
+	font-family: sans-serif;
+    background:#dddddd;
+}
+
+.top_social_icon
+{
+    background: #FD7014;
+    color: #ffffff;
+    padding: 5px 0;
+}
+.top_social_icon a
+{
+    color: #ffffff;
+    padding: 0 7px;
+    text-decoration: none;
+}
+.navbar-dark
+{
+    background:#ffffff;
+    border-bottom: 1px solid #dddddd;   
+    box-shadow: 1px 10px 14px -1px rgba(206,204,204,0.75);
+    -webkit-box-shadow: 1px 10px 14px -1px rgba(206,204,204,0.75);
+    -moz-box-shadow: 1px 10px 14px -1px rgba(206,204,204,0.75);
+}
+
+.navbar-dark .navbar-nav .nav-link
+{
+    margin-right: 3px;
+    color: #333;
+    font-weight: 550;
+}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active:hover
+{
+    background: #009de1;
+    border-radius: 5px;
+    color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link
+{
+    background: #009de1;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover
+{
+    background: #FD7014;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.navbar-dark .navbar-toggler
+{
+    background: #999;
+}
+
+.freetrialBtn
+{
+    border:1px solid #009de1;
+}
+
+.section
+{
+    padding: 20px 0;
+    margin:20px 0;
+}
+.topPart h2
+{
+	font-size: 40px;
+	font-weight: bold;
+	padding-bottom: 20px;
+}
+
+.mySpeach .sub_title
+{
+    font-size: 22px;
+    font-weight: bold;
+}
+.starting_at {
+    color: #f6a656;
+}
+
+h2.service_title
+{
+	font-weight: bold;
+	text-align: center;
+    padding-bottom: 20px;
+}
+.pageTitle
+{
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.about-text
+{
+    text-align: justify;
+}
+.custom-counter
+{
+    background: #999;
+}
+
+
+.strap_section
+{
+    background: #ffffff;
+}
+.custom-counter .fa
+{
+    font-size: 50px;
+    color: #825339;
+}
+
+.number-wrapper
+{
+    font-size: 40px;
+    line-height: 60px;
+    color: #825339;
+    letter-spacing: -3px;
+}
+
+.number-wrapper .number
+{
+    font-size: 60px;
+}
+
+.counter-title
+{
+    font-size: 20px;
+    line-height: 24px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.custom-counter .sub-title
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.serviceDescription
+{
+    height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.subTitle
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer
+{
+	padding: 30px 0;
+	background: #FD7014;
+	color: #fff;
+}
+
+.sercice_area .card
+{
+    margin-bottom: 20px;
+}
+
+
+
+.footer ul
+{
+    padding-left: 0;
+}
+.footer ul li
+{
+    list-style-type: none;
+    padding:4px 0;
+}
+
+.footer ul li a
+{
+    text-decoration: none;
+    color: #fff;
+}
+
+.bottom-title
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.pagination a, .pagination strong {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.pagination strong {
+    font-weight: bold;
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+} 
+
+
+.error{
+    color:red;
+}
+
+ul li {
+    list-style: none;
+}
+
+.stars .checked {
+      color: orange;
+}
+.candidateImg {
+    max-height: 180px;
+    width: auto;
+}
+
+
+
+
+
+@media (min-width: 1200px)
+{
+	.container {
+	    max-width: 1170px;
+	}
+}
